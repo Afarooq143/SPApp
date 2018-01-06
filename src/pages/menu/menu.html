@@ -1,0 +1,26 @@
+<ion-menu persistent="true" [content]="content" (ionClose)="collapseMenuOptions()">
+	<ion-header style="background:#000;">
+		<ion-toolbar class="menu-header" >
+			<!-- <ion-title>{{ (sideMenuSettings.accordionMode ? 'Accordion' : 'Default') + ' menu' }}</ion-title> -->
+			<div class="user-profile-img">
+			<ion-icon ios="ios-contact" md="md-contact" style="font-size: 2.2em; color: #fff;"></ion-icon>
+
+				<!-- <img src="assets/img/user.png"> -->
+			</div>
+			<div class="user-profile-text">
+				<ion-title>{{ user }}</ion-title>
+			</div>
+			 <ion-icon ios="ios-close" class="close-menu" md="md-close" color="light" float-right menuToggle></ion-icon>
+		</ion-toolbar>
+	</ion-header>
+
+	<ion-content >
+
+		<!-- Side Menu -->
+		<side-menu-content [settings]="sideMenuSettings" [options]="options" (selectOption)="selectOption($event)"></side-menu-content>
+
+	</ion-content>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

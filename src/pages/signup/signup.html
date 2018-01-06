@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-navbar [color]="isAndroid ? 'royal' : 'primary'">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Signup
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page12">
+  <form id="signup-form2" [formGroup]="signupForm" >
+    <ion-list id="signup-list4">
+      <ion-item id="signup-input3">
+        <!-- <ion-label> Name</ion-label> -->
+        <ion-input type="text" value="" [formControl]="signupForm.controls['name']" [ngClass]="{'error-border':!signupForm.controls['name'].valid}"
+          [(ngModel)]="userData.name" placeholder="Name"></ion-input>
+      </ion-item>
+      <br/>
+      <div class="error-box" *ngIf="signupForm.controls['name'].hasError('required') && signupForm.controls['name'].touched">* Name is required!</div>
+      <div class="error-box" *ngIf="signupForm.controls['name'].hasError('minlength') && signupForm.controls['name'].touched">* Minimum name length is 5!</div>
+
+      <ion-item id="signup-input4">
+        <!-- <ion-label> Email</ion-label> -->
+        <ion-input type="email" value="" [formControl]="signupForm.controls['email']" [ngClass]="{'error-border':!signupForm.controls['email'].valid}"
+          [(ngModel)]="userData.email" placeholder="Email"></ion-input>
+      </ion-item>
+      <br/>
+      <div class="error-box" *ngIf="signupForm.controls['email'].hasError('required') && signupForm.controls['email'].touched">* Email is required!</div>
+      <div class="error-box" *ngIf="signupForm.controls['email'].hasError('pattern') && signupForm.controls['email'].touched">* Invalid email id!</div>
+
+
+      <ion-item id="signup-input3">
+        <!-- <ion-label> Username </ion-label> -->
+        <ion-input type="text" value="" [formControl]="signupForm.controls['username']" [ngClass]="{'error-border':!signupForm.controls['username'].valid}"
+          [(ngModel)]="userData.username" placeholder="Username"></ion-input>
+      </ion-item>
+      <br/>
+      <div class="error-box" *ngIf="signupForm.controls['username'].hasError('required') && signupForm.controls['username'].touched">* Username is required!</div>
+      <div class="error-box" *ngIf="signupForm.controls['username'].hasError('minlength') && signupForm.controls['username'].touched">* Minimum username length is 5!</div>
+      <div class="error-box" *ngIf="signupForm.controls['username'].hasError('maxlength') && signupForm.controls['username'].touched">* Maximum username length is 10!</div>
+      
+      <ion-item id="signup-input5">
+        <!-- <ion-label>
+          Password
+        </ion-label> -->
+        <ion-input type="password" [formControl]="signupForm.controls['password']" [ngClass]="{'error-border':!signupForm.controls['password'].valid}"
+          [(ngModel)]="userData.password" placeholder="Password"></ion-input>
+      </ion-item>
+      <br/>
+      <div class="error-box" *ngIf="signupForm.controls['password'].hasError('required') && signupForm.controls['password'].touched">* Password is required!</div>
+      <div class="error-box" *ngIf="signupForm.controls['password'].hasError('minlength') && signupForm.controls['password'].touched">* Minimum password length is 8!</div>
+      
+      <ion-item>
+        <button ion-button (click)="getImage()">Image</button>
+      </ion-item>
+      <ion-item>
+        <!-- ?<h4>Image Preview</h4> -->
+        <img src="{{imageFileName}}" *ngIf="imageFileName" alt="Ionic File" width="300" />
+      </ion-item>
+    </ion-list>
+    
+    <!-- <div class="spacer" style="height:40px;" id="signup-spacer1"></div> -->
+    <button type="submit" ion-button full color="stable" block [disabled]="!signupForm.valid" (click)="doSignup(signupForm.value)">Sign Up</button>
+    <!-- <button id="signup-button3" (click)="doSignup()" ion-button color="stable" block >
+            Sign Up
+            </button> -->    
+  </form>
+  
+  <button id="signup-button2" ion-button clear color="positive" (click)="goLogin()" block href-inappbrowser="/login">
+    Or Already have an account
+  </button>
+</ion-content>

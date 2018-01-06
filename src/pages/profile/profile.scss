@@ -1,0 +1,86 @@
+page-profile {
+    .segment-md .segment-button ion-icon {
+        font-size: 4.2rem;
+        line-height: 4rem;
+    }
+    .scroll-content {
+        margin-top: 17px;
+    }
+    .tab-text-tab {
+        font-size: 12px;
+        padding: 0px;
+        margin: 0px;
+    }
+    ion-col.width-box.col {
+        width: 25%;
+        padding: 5px 10px;
+        text-align: center;
+    }
+    .header-tab {
+        .tab-icon-tab {
+            color: color($colors, primary, base);
+        }
+    }
+    .segment-md-dim .segment-button {
+        color: color($colors, primary, base);
+        ;
+        overflow: visible;
+        white-space: normal !important;
+        border-bottom-style: none;
+        height: 100%;
+    }
+    .tab-icon-tab p {
+        margin: 0px;
+        line-height: 18px;
+        font-size: 1.0rem;
+    }
+    .marging-top {
+        margin-top: 46px;
+    }
+    .height-ican {
+        height: 75px;
+    }
+    .list-md {
+        margin: -25px 0 16px;
+    }
+    ion-segment {
+        background: color($colors, dim, base);
+    }
+    .dropdown-icon-profile {
+        display: none;
+        position: absolute;
+        bottom: -10%;
+        left: 35%;
+        line-height: 0rem !important;
+        font-size: 7rem !important;
+        color: color($colors, primary, base);
+        transform: translateX(-50%);
+    }
+    .tab-icon-tab p {
+        margin: 0px;
+        line-height: 13px;
+        font-size: 1.0rem;
+        padding: 0px 10px;
+        //padding-bottom: 10px;
+    }
+    .segment-activated {
+        background: color($colors, primary, base) !important;
+        color: color($colors, light, base) !important;
+        .dropdown-icon-profile {
+            display: block !important;
+        }
+    }
+    .segment-md-dim  {
+        color: color($colors, primary, base) !important;
+        overflow: visible;
+        white-space: normal !important;
+        border-bottom-style: none;
+        height: 100%;
+        //padding: 0px 10px;
+    }
+    .dropdown-icon-profile:before {
+        content: "\f280";
+        height: 0px;
+        width: 0px;
+    }
+}

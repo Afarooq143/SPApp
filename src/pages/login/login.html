@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-navbar [color]="isAndroid ? 'royal' : 'primary'">
+    <!-- <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button> -->
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page11">
+  <form id="login-form1" [formGroup]="loginForm" (ngSubmit)="doLogin(loginForm.value)">
+    <ion-list id="login-list3">
+      <ion-item id="login-input1">
+        <!-- <ion-label>Email</ion-label> -->
+        <ion-input type="text" value="" [formControl]="loginForm.controls['username']" [ngClass]="{'error-border':!loginForm.controls['username'].valid}"
+        [(ngModel)]="loginData.username" placeholder="Username"></ion-input>      
+      </ion-item>
+      <br/>
+      <div class="error-box" *ngIf="loginForm.controls['username'].hasError('required') && loginForm.controls['username'].touched">* Username is required!</div>
+
+      <ion-item id="login-input2">
+        <!-- <ion-label>Password</ion-label> -->
+        <ion-input type="password" [formControl]="loginForm.controls['password']" [ngClass]="{'error-border':!loginForm.controls['password'].valid}"
+        [(ngModel)]="loginData.password" placeholder="Password"></ion-input>
+    </ion-item>
+    <br/>
+    <div class="error-box" *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">* Password is required!</div>
+
+      <div class="spacer" style="height:40px;" id="login-spacer1"></div>
+        <button type="submit" ion-button full color="stable" block [disabled]="!loginForm.valid">Login</button>
+    </ion-list>
+    
+  </form>
+  <button id="login-button2" ion-button clear color="positive" (click)="goSignup()" block >
+    Or create an account
+  </button>
+</ion-content>

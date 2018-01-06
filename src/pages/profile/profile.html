@@ -1,0 +1,84 @@
+<ion-header>
+    <ion-navbar color="white">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <div class="logo-icon">
+            <img src="assets/imgs/logo.png">
+            <ion-icon ios="ios-notifications" md="md-notifications"></ion-icon>
+            <ion-icon ios="ios-cart" md="md-cart"></ion-icon>
+        </div>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="position-none">
+    <div class="height-ican" no-border-top color="dim">
+        <ion-segment [(ngModel)]="segments" color="dim">
+            <ion-segment-button value="profile" color="primary">
+                <div no-margin full large color="dim" class="profile-icon-arrow">
+                    <div class="tab-icon-tab">
+                        <ion-icon name="ios-contact">
+                            <p>Profile Information</p>
+                        </ion-icon>
+
+                    </div>
+                    <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown" class="dropdown-icon-profile"></ion-icon>
+                </div>
+
+            </ion-segment-button>
+
+            <ion-segment-button value="location">
+                <div no-margin full large color="dim">
+                    <div class="tab-icon-tab">
+                        <ion-icon name="ios-podium">
+                            <p>Location Information</p>
+                        </ion-icon>
+                    </div>
+                    <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown" class="dropdown-icon-profile"></ion-icon>
+                </div>
+
+            </ion-segment-button>
+            <ion-segment-button value="contacts">
+                <div no-margin full large color="dim">
+                    <div class="tab-icon-tab">
+                        <ion-icon name="contacts">
+                            <p>Additional Users</p>
+                        </ion-icon>
+                    </div>
+                    <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown" class="dropdown-icon-profile"></ion-icon>
+                </div>
+
+            </ion-segment-button>
+            <ion-segment-button value="payments">
+                <div no-margin full large color="dim">
+                    <div class="tab-icon-tab">
+                        <ion-icon name="ios-card">
+                            <p>Payment Information</p>
+                        </ion-icon>
+                    </div>
+                    <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown" class="dropdown-icon-profile"></ion-icon>
+                </div>
+
+            </ion-segment-button>
+
+        </ion-segment>
+    </div>
+    <div class="marging-top"></div>
+    <div [ngSwitch]="segments">
+        <ion-list *ngSwitchCase="'profile'">
+            profile information
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'location'">
+            loaction information
+
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'contacts'">
+            users
+        </ion-list>
+        <ion-list *ngSwitchCase="'payments'">
+            payments
+        </ion-list>
+    </div>
+</ion-content>
