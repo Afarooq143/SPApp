@@ -57,25 +57,25 @@ export class HomePage implements OnInit {
 	}
 
 	ngOnInit() {
-		// this.utils.showLoader('Loading..');
-		// this.rest.getAll('api/get_customer').subscribe(
-		// 	res => {
-		// 		this.utils.hideLoader();
-		// 		this.data = res;
-		// 		console.log(this.data);
-		// 		if (this.data.success) {
-		// 			console.log(this.data);
-		// 			// var userData = JSON.stringify(this.data);
-		// 			// var maindata = JSON.parse(userData);
-		// 			// console.log(maindata);
-		// 		} else {
-		// 			//this.utils.presentToast(this.user);
-		// 			console.log(this.user);
-		// 		}
-		// 		console.log("Successfully Completed");
-		// 	}, error => {
-		// 		this.utils.presentToast(error, 3000, 'middle');
-		// 	});
+		this.utils.showLoader('Loading..');
+		this.rest.getAll('api/get_customer').subscribe(
+			res => {
+				this.utils.hideLoader();
+				this.data = res;
+				console.log(this.data);
+				if (this.data.success) {
+					console.log(this.data);
+					// var userData = JSON.stringify(this.data);
+					// var maindata = JSON.parse(userData);
+					// console.log(maindata);
+				} else {
+					//this.utils.presentToast(this.user);
+					console.log(this.user);
+				}
+				console.log("Successfully Completed");
+			}, error => {
+				this.utils.presentToast(error, 3000, 'middle');
+			});
 	}
 
 	getdata(){

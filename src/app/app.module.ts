@@ -76,7 +76,6 @@ import { ConfigurationProvider } from '../providers/configuration/configuration'
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    // { provide: HTTP_INTERCEPTORS, useClass: CustomInterceptor, multi: true }, //interceptor
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, //interceptor    
     ConfigurationProvider,
     RestProvider,
@@ -87,6 +86,5 @@ export class AppModule {
   user:any;
   constructor(){
     this.user = localStorage.getItem('username');
-		console.log(this.user);
   }
 }

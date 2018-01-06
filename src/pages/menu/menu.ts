@@ -42,7 +42,7 @@ export class MenuPage {
 	// Options to show in the SideMenuComponent
 	public options: Array<MenuOptionModel>;
 
-	//   // Settings for the SideMenuComponent
+	// Settings for the SideMenuComponent
 	public sideMenuSettings: SideMenuSettings = {
 		accordionMode: true,
 		showSelectedOption: true,
@@ -55,17 +55,13 @@ export class MenuPage {
 
 	};
 
-	constructor(private platform: Platform,
+	constructor(
+		private platform: Platform,
 		private statusBar: StatusBar,
 		private splashScreen: SplashScreen,
 		private alertCtrl: AlertController,
-		private menuCtrl: MenuController) {
-		// platform.ready().then(() => {
-		//   // Okay, so the platform is ready and our plugins are available.
-		//   // Here you can do any higher level native things you might need.
-		//   statusBar.styleDefault();
-		//   splashScreen.hide();
-		// });
+		private menuCtrl: MenuController
+	) {
 		this.user = localStorage.getItem('username');
 		this.initializeApp();
 	}
@@ -190,6 +186,7 @@ export class MenuPage {
 		});
 	}
 
+	//this functions are not yet in use however don't remove 
 	public selectOption(option: MenuOptionModel): void {
 		this.menuCtrl.close().then(() => {
 			if (option.custom && option.custom.isLogin) {
@@ -206,11 +203,9 @@ export class MenuPage {
 		});
 	}
 
-	public collapseMenuOptions(): void {
-		console.log('clicked');
-		this.sideMenu.collapseAllOptions();
-	}
 
+
+	//this functions are not yet in use however don't remove 
 	public presentAlert(message: string): void {
 		let alert = this.alertCtrl.create({
 			title: 'Information',
@@ -218,6 +213,11 @@ export class MenuPage {
 			buttons: ['Ok']
 		});
 		alert.present();
+	}
+
+	public collapseMenuOptions(): void {
+		console.log('clicked');
+		this.sideMenu.collapseAllOptions();
 	}
 }
 

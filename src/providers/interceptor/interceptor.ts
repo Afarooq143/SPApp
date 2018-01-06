@@ -5,13 +5,12 @@ import { Observable } from "rxjs/Observable";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(){}
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token_id = localStorage.getItem("token");
     req = req.clone({ headers: req.headers.set('Content-Type', 'application/x-www-form-urlencoded') });
     if (token_id) {
       req = req.clone({
-        headers: req.headers.set("Authorization", 'token ' + token_id)
+        headers: req.headers.set("Authorization", 'token_ ' + token_id)
       });
       req = req.clone({
         headers: req.headers.append("token_id", token_id)
@@ -23,7 +22,6 @@ export class AuthInterceptor implements HttpInterceptor {
       }
     }, (err: any) => {
       if (err instanceof HttpErrorResponse) {
-        alert('Not connected');
         if (err.status === 401) {
           localStorage.clear();          
         }
